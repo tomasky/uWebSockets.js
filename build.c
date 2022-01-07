@@ -4,21 +4,15 @@
 #include <string.h>
 
 /* List of platform features */
-#ifdef _WIN32
-#define OS "win32"
-#define IS_WINDOWS
-#endif
+ 
 #ifdef __linux
 #define OS "linux"
 #define IS_LINUX
 #endif
-#ifdef __APPLE__
-#define OS "darwin"
-#define IS_MACOS
-#endif
+ 
 
 const char *ARM64 = "arm64";
-const char *X64 = "x64";
+const char *X64 = "ia32";
 
 /* System, but with string replace */
 int run(const char *cmd, ...) {
@@ -69,7 +63,7 @@ void build_boringssl(const char *arch) {
     
 #ifdef IS_LINUX
     /* Build for x64 or arm64 (depending on the host) */
-    run("cd uWebSockets/uSockets/boringssl && mkdir -p %s && cd %s && cmake -DCMAKE_POSITION_INDEPENDENT_CODE=ON -DCMAKE_BUILD_TYPE=Release .. && make crypto ssl", arch, arch);
+    run("cd uWebSockets/uSockets/boringssl && mkdir -p %s && cd %s && cmake -DCMAKE_TOOLCHAIN_FILE=../util/32-bit-toolchain.cmake -DCMAKE_POSITION_INDEPENDENT_CODE=ON -DCMAKE_BUILD_TYPE=Release .. && make crypto ssl", arch, arch);
 #endif
     
 #ifdef IS_WINDOWS
