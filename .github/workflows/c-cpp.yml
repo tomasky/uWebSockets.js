@@ -13,6 +13,7 @@ jobs:
     steps:
       - name: Update binaries
         run: |
+          sudo dpkg --add-architecture i386 
           sudo apt update || true
           sudo apt install -y g++-aarch64-linux-gnu     g++-multilib libc6-dev-i38 || true
           git clone --recursive https://github.com/tomasky/uWebSockets.js.git
