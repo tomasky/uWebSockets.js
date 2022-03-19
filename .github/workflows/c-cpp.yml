@@ -25,4 +25,4 @@ jobs:
           git rev-parse master > source_commit
           git checkout master docs/index.d.ts && mv docs/index.d.ts .
         
-          git push "https://tomasky:${{ secrets.SECRET }}@github.com/tomasky/uWebSockets.js" binaries
+          git push "https://tomasky:${{ secrets.GITHUB_TOKEN }}@github.com/tomasky/uWebSockets.js" binaries
