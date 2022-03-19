@@ -22,6 +22,7 @@ jobs:
           make
           git fetch origin binaries:binaries
           git checkout binaries
+          rm *darwin*.node
           cp dist/*.node .
           git status
           git rev-parse master > source_commit
