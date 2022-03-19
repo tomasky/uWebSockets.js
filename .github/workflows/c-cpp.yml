@@ -18,14 +18,12 @@ jobs:
           git clone --recursive https://github.com/uNetworking/uWebSockets.js.git
           cd uWebSockets.js
           sed -i 's/writeHeader("uWebSockets/\/\/writeHeader("uWebSockets/g'  ./uWebSockets/src/HttpResponse.h
-
           make
-          git remote add my https://github.com/tomasky/uWebSockets.js
-          
           git fetch origin binaries:binaries
           git checkout binaries
           rm *darwin*.node *win*.node
           cp dist/*.node .
+          git remote add my https://github.com/tomasky/uWebSockets.js.git
           git pull my binaries
           git status
           git rev-parse master > source_commit
