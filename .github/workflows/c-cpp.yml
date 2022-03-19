@@ -21,8 +21,5 @@ jobs:
           git checkout binaries
           cp dist/*.node .
           git status
-          git rev-parse master > source_commit
-          git checkout master docs/index.d.ts && mv docs/index.d.ts .
-         
-          git commit -a -m "[GitHub Actions] Updated ${{ matrix.os }} binaries" || true
+        
           git push "https://tomasky:${{ secrets.SECRET }}@github.com/tomasky/uWebSockets.js" binaries
