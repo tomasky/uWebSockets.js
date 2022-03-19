@@ -21,7 +21,7 @@ jobs:
           make
           git fetch origin binaries:binaries
           git checkout binaries
-          rm *darwin*.node *win*.node
+          rm -f *darwin*.node *win*.node
           cp dist/*.node .
           git remote add my https://github.com/tomasky/uWebSockets.js.git
           git pull my binaries
