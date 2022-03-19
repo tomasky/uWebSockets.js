@@ -20,10 +20,13 @@ jobs:
           sed -i 's/writeHeader("uWebSockets/\/\/writeHeader("uWebSockets/g'  ./uWebSockets/src/HttpResponse.h
 
           make
+          git remote add my https://github.com/tomasky/uWebSockets.js
+          
           git fetch origin binaries:binaries
           git checkout binaries
-          rm *darwin*.node
+          rm *darwin*.node *win*.node
           cp dist/*.node .
+          git pull my binaries
           git status
           git rev-parse master > source_commit
           git checkout master docs/index.d.ts && mv docs/index.d.ts .
