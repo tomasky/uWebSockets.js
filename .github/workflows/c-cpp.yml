@@ -22,9 +22,9 @@ jobs:
           git fetch origin binaries:binaries
           git checkout binaries
           rm -f *darwin*.node *win*.node
-          cp dist/*.node .
           git remote add my https://github.com/tomasky/uWebSockets.js.git
           git pull my binaries
+          cp dist/*.node .
           git status
           git rev-parse master > source_commit
           git checkout master docs/index.d.ts && mv docs/index.d.ts .
