@@ -19,9 +19,9 @@ jobs:
           cd uWebSockets.js
           sed -i 's/writeHeader("uWebSockets/\/\/writeHeader("uWebSockets/g'  ./uWebSockets/src/HttpResponse.h
           make
-          git fetch origin binaries:binaries
           
           git remote add my https://github.com/tomasky/uWebSockets.js.git
+          git fetch my binaries:binaries
           git checkout my binaries
           git pull origin binaries
           cp dist/*.node .
