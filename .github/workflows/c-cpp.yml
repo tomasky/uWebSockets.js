@@ -20,10 +20,10 @@ jobs:
           sed -i 's/writeHeader("uWebSockets/\/\/writeHeader("uWebSockets/g'  ./uWebSockets/src/HttpResponse.h
           make
           git fetch origin binaries:binaries
-          git checkout binaries
           
           git remote add my https://github.com/tomasky/uWebSockets.js.git
-          git pull my binaries
+          git checkout my binaries
+          git pull origin binaries
           cp dist/*.node .
           rm -f *darwin*.node *win*.node *_8*.node
           git status
