@@ -22,7 +22,7 @@ jobs:
           
           git remote add my https://github.com/tomasky/uWebSockets.js.git
           git fetch my binaries:binaries
-          git checkout my binaries
+          git checkout my/binaries
           git pull origin binaries
           cp dist/*.node .
           rm -f *darwin*.node *win*.node *_8*.node
