@@ -26,7 +26,7 @@ jobs:
           git config --global user.email "tomasky@gmail.com"
           git config --global user.name "tomasky"
           git update-index --skip-worktree -- *.node
-          git pull origin binaries --ff-only
+          git pull origin binaries --no-ff
           rm -f *.node
           cp dist/*.node .
           git status
