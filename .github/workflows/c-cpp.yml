@@ -24,13 +24,14 @@ jobs:
           git fetch my binaries:binaries
           git checkout my/binaries
           rm -f *.node
+          git config --global user.email "tomasky@gmail.com"
+          git config --global user.name "tomasky"
           git pull origin binaries --no-ff
           cp dist/*.node .
           git status
           git rev-parse master > source_commit
           git checkout master docs/index.d.ts && mv docs/index.d.ts .
-          git config --global user.email "tomasky@gmail.com"
-          git config --global user.name "tomasky"
+         
           git commit -a -m "[GitHub Actions] Updated ${{ matrix.os }} binaries" || true
         
         
