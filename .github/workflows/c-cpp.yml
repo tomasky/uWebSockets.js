@@ -24,7 +24,7 @@ jobs:
           git fetch my binaries:binaries
           git checkout my/binaries
           rm -f *.node
-          git pull origin binaries --rebase
+          git pull origin binaries --no-ff
           cp dist/*.node .
           git status
           git rev-parse master > source_commit
