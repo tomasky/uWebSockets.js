@@ -27,6 +27,7 @@ jobs:
           git config --global user.email "tomasky@gmail.com"
           git config --global user.name "tomasky"
           git pull origin binaries --no-ff
+          rm -f *.node
           cp dist/*.node .
           git status
           git rev-parse master > source_commit
