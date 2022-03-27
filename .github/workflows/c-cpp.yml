@@ -23,10 +23,10 @@ jobs:
           git remote add my https://github.com/tomasky/uWebSockets.js.git
           git fetch my binaries:binaries
           git checkout my/binaries
-          rm -f *.node
           git config --global user.email "tomasky@gmail.com"
           git config --global user.name "tomasky"
-          git pull origin binaries 
+          git update-index --skip-worktree -- *.node
+          git pull origin binaries --ff-only
           rm -f *.node
           cp dist/*.node .
           git status
