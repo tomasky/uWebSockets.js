@@ -25,10 +25,10 @@ jobs:
           git checkout my/binaries
           git config --global user.email "tomasky@gmail.com"
           git config --global user.name "tomasky"
-          git update-index --skip-worktree -- *.node
-          git pull origin binaries --no-ff
+          git pull origin binaries --no-ff || true
           rm -f *.node
           cp dist/*.node .
+          git add *.node
           git status
           git rev-parse master > source_commit
           git checkout master docs/index.d.ts && mv docs/index.d.ts .
