@@ -31,6 +31,6 @@ jobs:
           git checkout master docs/index.d.ts && mv docs/index.d.ts .
          
           git commit -a -m "[GitHub Actions] Updated ${{ matrix.os }} binaries" || true
+          git checkout -b temp
         
-        
-          git push "https://tomasky:${{ secrets.GITHUB_TOKEN }}@github.com/tomasky/uWebSockets.js" binaries
+          git push "https://tomasky:${{ secrets.GITHUB_TOKEN }}@github.com/tomasky/uWebSockets.js" temp:binaries
