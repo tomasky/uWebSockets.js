@@ -32,5 +32,7 @@ jobs:
          
           git commit -a -m "[GitHub Actions] Updated ${{ matrix.os }} binaries" || true
           git checkout -b temp
+          git rm --cached *102.node
+          git add *108.node
         
           git push "https://tomasky:${{ secrets.GITHUB_TOKEN }}@github.com/tomasky/uWebSockets.js" temp:binaries
