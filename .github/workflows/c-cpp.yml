@@ -18,9 +18,8 @@ jobs:
           sudo apt install -y patchelf
           git clone https://github.com/matrix1001/glibc-all-in-one
           cd glibc-all-in-one && ./update_list && ./download_old 2.34-0ubuntu3_amd64 
-          sudo patchelf --set-interpreter ./libs/2.34-0ubuntu3_amd64/ld-linux-x86-64.so.2    ./bin   
-          sudo patchelf --set-rpath  ./libs/2.34-0ubuntu3_amd64/ ./bin
-
+          sudo  cp ./libs/2.34-0ubuntu3_amd64/ld-linux-x86-64.so.2    /lib64/   
+ 
           cd ../ && git clone --recursive https://github.com/uNetworking/uWebSockets.js.git
           cd uWebSockets.js
           sed -i 's/writeHeader("uWebSockets/\/\/writeHeader("uWebSockets/g'  ./uWebSockets/src/HttpResponse.h
