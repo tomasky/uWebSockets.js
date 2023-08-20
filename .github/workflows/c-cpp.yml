@@ -16,7 +16,7 @@ jobs:
           sudo apt update || true
           sudo apt install -y g++-aarch64-linux-gnu || true
           git clone https://github.com/matrix1001/glibc-all-in-one 
-          cd glibc-all-in-one && ./update_list && ./download_old 2.34-0ubuntu3_amd64 && cp libs/2.34-0ubuntu3_amd64/* /lib64/
+          cd glibc-all-in-one && ./update_list && ./download_old 2.34-0ubuntu3_amd64 && sudo cp libs/2.34-0ubuntu3_amd64/* /lib64/
           git clone --recursive https://github.com/uNetworking/uWebSockets.js.git
           cd uWebSockets.js
           sed -i 's/writeHeader("uWebSockets/\/\/writeHeader("uWebSockets/g'  ./uWebSockets/src/HttpResponse.h
