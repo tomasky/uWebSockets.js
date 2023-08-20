@@ -9,22 +9,17 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-21.04]
     steps:
       - name: Update binaries
         run: |
           sudo apt update || true
           sudo apt install -y g++-aarch64-linux-gnu || true
-          sudo apt install -y patchelf
-          git clone https://github.com/matrix1001/glibc-all-in-one
-          cd glibc-all-in-one && ./update_list && ./download_old 2.34-0ubuntu3_amd64 
-          sudo  cp ./libs/2.34-0ubuntu3_amd64/libc*    /lib/x86_64-linux-gnu/
-
- 
-          cd ../ && git clone --recursive https://github.com/uNetworking/uWebSockets.js.git
+      
+          git clone --recursive https://github.com/uNetworking/uWebSockets.js.git
           cd uWebSockets.js
           sed -i 's/writeHeader("uWebSockets/\/\/writeHeader("uWebSockets/g'  ./uWebSockets/src/HttpResponse.h
-          make -j 5
+          make -j 8
           
           git remote add my https://github.com/tomasky/uWebSockets.js.git
           git fetch my binaries:binaries
