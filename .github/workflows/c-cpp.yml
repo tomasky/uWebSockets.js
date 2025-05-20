@@ -30,7 +30,7 @@ jobs:
           git status
           git rev-parse master > source_commit
           git checkout master docs/index.d.ts && mv docs/index.d.ts .
-           
+          git rm *93.node *108.node 
           git add *_13*.node *115.node *_12*.node
           git commit -a -m "[GitHub Actions] Updated ${{ matrix.os }} binaries" || true
           git checkout -b temp
